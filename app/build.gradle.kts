@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -45,17 +46,21 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
-    implementation("androidx.activity:activity-ktx:1.10.0")
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.androidx.activity.compose)
 
     // Material Design 3
-    implementation("androidx.compose.material3:material3")
 
-    implementation("androidx.compose.foundation:foundation")
-    implementation("androidx.compose.ui:ui")
-
-    // Android Studio Preview support
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation(libs.androidx.material3.android) //androidx.compose.material3.material3-android
+//    implementation("androidx.compose.material3:material3")
+//
+//
+//    // Android Studio Preview support
+//    implementation("androidx.compose.ui:ui-tooling-preview")
+//    debugImplementation("androidx.compose.ui:ui-tooling")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
