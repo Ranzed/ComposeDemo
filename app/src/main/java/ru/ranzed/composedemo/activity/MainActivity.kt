@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,7 +13,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import ru.ranzed.composedemo.ui.theme.AppColors
+import ru.ranzed.composedemo.ui.theme.AppShapes
 import ru.ranzed.composedemo.ui.theme.AppTheme
+import ru.ranzed.composedemo.ui.theme.AppTypography
 import ru.ranzed.composedemo.viewmodel.MainViewModel
 
 class MainActivity : ComponentActivity() {
@@ -25,9 +26,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppTheme(
-                colors = AppColors(
-                    primaryTextColor = Color.Red
-                )
+                colors = AppColors(),
+                shapes = AppShapes(),
+                typography = AppTypography()
             ) {
                 Box(
                     modifier = Modifier.fillMaxSize().background(Color.Cyan)
