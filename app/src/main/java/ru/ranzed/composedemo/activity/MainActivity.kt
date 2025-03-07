@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
+import ru.ranzed.composedemo.ui.screen.MainScreen
 import ru.ranzed.composedemo.ui.theme.AppColorsDefault
 import ru.ranzed.composedemo.ui.theme.AppShapesDefault
 import ru.ranzed.composedemo.ui.theme.AppTheme
@@ -30,8 +31,9 @@ class MainActivity : ComponentActivity() {
                 shapes = AppShapesDefault,
                 typography = AppTypographyDefault
             ) {
-                Box(
-                    modifier = Modifier.fillMaxSize().background(Color.Cyan)
+                MainScreen(
+                    modifier = Modifier.fillMaxSize().background(Color.Cyan),
+                    // state = viewModel.state
                 )
             }
         }
