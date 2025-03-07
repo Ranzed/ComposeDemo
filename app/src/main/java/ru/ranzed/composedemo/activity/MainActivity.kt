@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import ru.ranzed.composedemo.ui.theme.AppColors
-import ru.ranzed.composedemo.ui.theme.AppShapes
+import ru.ranzed.composedemo.ui.theme.AppColorsDefault
+import ru.ranzed.composedemo.ui.theme.AppShapesDefault
 import ru.ranzed.composedemo.ui.theme.AppTheme
-import ru.ranzed.composedemo.ui.theme.AppTypography
+import ru.ranzed.composedemo.ui.theme.AppTypographyDefault
 import ru.ranzed.composedemo.viewmodel.MainViewModel
 
 class MainActivity : ComponentActivity() {
@@ -26,9 +26,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppTheme(
-                colors = AppColors(),
-                shapes = AppShapes(),
-                typography = AppTypography()
+                colors = AppColorsDefault,
+                shapes = AppShapesDefault,
+                typography = AppTypographyDefault
             ) {
                 Box(
                     modifier = Modifier.fillMaxSize().background(Color.Cyan)

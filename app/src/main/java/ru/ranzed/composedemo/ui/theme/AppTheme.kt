@@ -7,6 +7,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.text.TextStyle
 
 class AppColors(
     val primaryText: Color,
@@ -26,13 +27,13 @@ class AppShapes(
 )
 
 class AppTypography(
-    val header1: Typography,
-    val header2: Typography,
-    val header3: Typography,
-    val body1: Typography,
-    val body2: Typography,
-    val body3: Typography,
-    val label1: Typography,
+    val header1: TextStyle,
+    val header2: TextStyle,
+    val header3: TextStyle,
+    val body1: TextStyle,
+    val body2: TextStyle,
+    val body3: TextStyle,
+    val label1: TextStyle,
 )
 
 private val LocalAppColors = staticCompositionLocalOf<AppColors> {
