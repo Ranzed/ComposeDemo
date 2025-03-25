@@ -9,13 +9,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 
-class AppColors(
+data class AppColors(
     val primaryText: Color,
     val accentText: Color,
     val secondaryText: Color,
     val iconFill: Color,
     val divider: Color,
     val borderOutline: Color,
+    val primaryBackground: Color,
 )
 
 class AppShapes(
@@ -36,16 +37,19 @@ class AppTypography(
     val label1: TextStyle,
 )
 
-private val LocalAppColors = staticCompositionLocalOf<AppColors> {
-    error("No AppColors provided")
+ val LocalAppColors = staticCompositionLocalOf<AppColors> {
+    //error("No AppColors provided")
+    AppColorsDefault
 }
 
 private val LocalAppShapes = staticCompositionLocalOf<AppShapes> {
-    error("No AppShapes provided")
+    //error("No AppShapes provided")
+    AppShapesDefault
 }
 
 private val LocalAppTypography = staticCompositionLocalOf<AppTypography> {
-    error("No AppShapes provided")
+    //error("No AppShapes provided")
+    AppTypographyDefault
 }
 
 object AppTheme {

@@ -15,6 +15,7 @@ val AppColorsDefault = AppColors(
     iconFill = Color(0xFF241F4E), // copy of primaryText
     divider = Color(0xFFEAE8F6),
     borderOutline = Color(0xFFEFF0F9),
+    primaryBackground = Color(0xFFFFFFFF),
 )
 
 val AppShapesDefault = AppShapes(
