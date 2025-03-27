@@ -17,6 +17,7 @@ data class AppColors(
     val divider: Color,
     val borderOutline: Color,
     val primaryBackground: Color,
+    val accentLight: Color,
 )
 
 class AppShapes(
@@ -35,21 +36,21 @@ class AppTypography(
     val body2: TextStyle,
     val body3: TextStyle,
     val label1: TextStyle,
+    val bodyLight14: TextStyle,
+    val bodyLightMono14: TextStyle,
+    val headerBold32: TextStyle,
 )
 
  val LocalAppColors = staticCompositionLocalOf<AppColors> {
-    //error("No AppColors provided")
-    AppColorsDefault
+    error("No AppColors provided")
 }
 
 private val LocalAppShapes = staticCompositionLocalOf<AppShapes> {
-    //error("No AppShapes provided")
-    AppShapesDefault
+    error("No AppShapes provided")
 }
 
 private val LocalAppTypography = staticCompositionLocalOf<AppTypography> {
-    //error("No AppShapes provided")
-    AppTypographyDefault
+    error("No AppShapes provided")
 }
 
 object AppTheme {

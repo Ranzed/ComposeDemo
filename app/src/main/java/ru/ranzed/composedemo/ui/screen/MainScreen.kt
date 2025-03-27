@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -18,6 +19,9 @@ import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.outlined.KeyboardArrowDown
+import androidx.compose.material.icons.outlined.LocationOn
+import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -27,15 +31,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.ranzed.composedemo.App
 import ru.ranzed.composedemo.ui.theme.AppColors
 import ru.ranzed.composedemo.ui.theme.AppColorsDefault
+import ru.ranzed.composedemo.ui.theme.AppShapesDefault
 import ru.ranzed.composedemo.ui.theme.AppTheme
+import ru.ranzed.composedemo.ui.theme.AppTypographyDefault
 import ru.ranzed.composedemo.ui.theme.LocalAppColors
+import ru.ranzed.composedemo.ui.theme.gradientBrush
 
 // Переиспользовать modifier
+
+private val MainScreenPaddingModifier = Modifier
+    .fillMaxWidth()
+    .padding(horizontal = 16.dp, vertical = 4.dp)
 
 @Composable
 fun MainScreen(
@@ -48,24 +61,19 @@ fun MainScreen(
         LocationAndNotifications(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 4.dp)
+                .padding(start = 16.dp, end = 16.dp, top = 24.dp)
         )
         GreetingWithBrief(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 4.dp)
+            modifier = MainScreenPaddingModifier
                 .weight(1f)
         )
         SearchBar(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 4.dp)
+            modifier = MainScreenPaddingModifier
+                .height(40.dp)
         )
+        Spacer(modifier = Modifier.height(12.dp))
         EventCategories(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(84.dp)
-                .padding(horizontal = 0.dp, vertical = 4.dp)
         )
         UpcomingEvents(
             modifier = Modifier
@@ -88,16 +96,24 @@ fun MainScreen(
 fun LocationAndNotifications(
     modifier: Modifier,
 ) {
-    Row(modifier = modifier) {
-        Icon(imageVector = Icons.Default.LocationOn, contentDescription = "location icon")
+    Row(
+        modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Icon(imageVector = Icons.Outlined.LocationOn, contentDescription = "location icon")
         Text(
+            modifier = Modifier.padding(start = 4.dp),
             text = "Kazan, Russia",
-            fontSize = AppTheme.typography.header1.fontSize,
-            color = AppTheme.colors.primaryText
+            color = AppTheme.colors.primaryText,
+            style = AppTheme.typography.bodyLightMono14,
+        )
+        Icon(
+            imageVector = Icons.Outlined.KeyboardArrowDown,
+            contentDescription = "Notification icon"
         )
         Spacer(Modifier.weight(1f))
         Icon(
-            imageVector = Icons.Default.Notifications,
+            imageVector = Icons.Outlined.Notifications,
             contentDescription = "Notification icon"
         )
     }
@@ -114,63 +130,17 @@ fun GreetingWithBrief(
         Text(
             text = "Hello, UserName",
             color = AppTheme.colors.primaryText,
-            fontSize = AppTheme.typography.header1.fontSize
+            style = AppTheme.typography.headerBold32,
             )
         Text(
+            modifier = Modifier.padding(top = 12.dp),
             text = "There are 32 events around your location.",
             color = AppTheme.colors.accentText,
-            fontSize = AppTheme.typography.header1.fontSize
+            style = AppTheme.typography.headerBold32,
         )
     }
 }
 
-@Composable
-fun SearchBar(
-    modifier: Modifier,
-) {
-    Row(
-        modifier = modifier
-            .background(
-                color = AppTheme.colors.accentText,
-                shape = AppTheme.shapes.stretchedRow,
-            )
-            .border(
-                width = 1.dp,
-                color = AppTheme.colors.borderOutline,
-                shape = AppTheme.shapes.stretchedRow
-            )
-            .padding(vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Icon(
-            imageVector = Icons.Default.Search,
-            contentDescription = "Search icon"
-        )
-        Text(
-            text = "Search your  events",
-            fontSize = AppTheme.typography.header3.fontSize,
-            color = AppTheme.colors.secondaryText,
-        )
-        Spacer(Modifier.weight(1f))
-        Box(
-            modifier = Modifier
-                .size(width = 1.dp, height = 12.dp)
-                .padding(vertical = 2.dp, horizontal = 4.dp)
-                .background(color = AppTheme.colors.divider)
-        )
-        Icon(imageVector = Icons.Default.Menu, contentDescription = "Filters icon")
-    }
-}
-
-
-@Composable
-fun EventCategories(
-    modifier: Modifier,
-) {
-    Row(
-        modifier = modifier
-    ) {  }
-}
 
 @Composable
 fun UpcomingEvents(
@@ -191,3 +161,19 @@ fun BottomTabs(
     }
 }
 
+
+@Preview
+@Composable
+fun MainScreenPreview() {
+    AppTheme(
+        colors = AppColorsDefault,
+        shapes = AppShapesDefault,
+        typography = AppTypographyDefault
+    ) {
+        MainScreen(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(brush = gradientBrush),
+        )
+    }
+}

@@ -54,10 +54,11 @@ dependencies {
 
     // Material Design 3
 
-    implementation(libs.androidx.material3.android) //androidx.compose.material3.material3-android
-//    implementation("androidx.compose.material3:material3")
-//
-//
+    implementation(libs.androidx.material3.android)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.ui.tooling)
+
+
 //    // Android Studio Preview support
 //    implementation("androidx.compose.ui:ui-tooling-preview")
 //    debugImplementation("androidx.compose.ui:ui-tooling")
