@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ru.ranzed.composedemo.ui.theme.AppTypographyTokens.bodyLight14
 import ru.ranzed.composedemo.ui.theme.AppTypographyTokens.bodyLightMono14
+import ru.ranzed.composedemo.ui.theme.AppTypographyTokens.headerBold18
 import ru.ranzed.composedemo.ui.theme.AppTypographyTokens.headerBold32
 
 val AppColorsDefault = AppColors(
@@ -49,7 +50,8 @@ val AppTypographyDefault: AppTypography
             label1 = typographyFromMaterial.labelMedium,
             bodyLight14 = bodyLight14,
             bodyLightMono14 = bodyLightMono14,
-            headerBold32 = headerBold32
+            headerBold32 = headerBold32,
+            headerBold18 = headerBold18,
         )
     }
 

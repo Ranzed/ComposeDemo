@@ -39,6 +39,7 @@ class AppTypography(
     val bodyLight14: TextStyle,
     val bodyLightMono14: TextStyle,
     val headerBold32: TextStyle,
+    val headerBold18: TextStyle,
 )
 
  val LocalAppColors = staticCompositionLocalOf<AppColors> {

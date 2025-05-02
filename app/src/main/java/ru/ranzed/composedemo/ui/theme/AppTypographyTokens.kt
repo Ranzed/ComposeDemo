@@ -37,4 +37,12 @@ internal object AppTypographyTokens {
         lineHeight = 40.sp,
         letterSpacing = 0.2.sp,
     )
+
+    val headerBold18 = defaultTextStyle.copy(
+        fontFamily = FontFamily.SansSerif,
+        fontWeight = FontWeight.W500,
+        fontSize = 18.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.2.sp,
+    )
 }

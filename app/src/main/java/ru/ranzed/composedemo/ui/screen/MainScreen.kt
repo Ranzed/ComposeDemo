@@ -141,17 +141,6 @@ fun GreetingWithBrief(
     }
 }
 
-
-@Composable
-fun UpcomingEvents(
-    modifier: Modifier,
-) {
-    Column(modifier = modifier) {
-        Row {  }
-        Row {  }
-    }
-}
-
 @Composable
 fun BottomTabs(
     modifier: Modifier
