@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Menu
@@ -27,6 +29,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -55,7 +58,8 @@ fun MainScreen(
     modifier: Modifier,
 ) {
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .verticalScroll(state = rememberScrollState()),
         verticalArrangement = Arrangement.Top
     ) {
         LocationAndNotifications(
@@ -78,7 +82,7 @@ fun MainScreen(
         UpcomingEvents(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(260.dp)
+                .height(300.dp)
                 .padding(horizontal = 0.dp, vertical = 4.dp)
         )
         BottomTabs(

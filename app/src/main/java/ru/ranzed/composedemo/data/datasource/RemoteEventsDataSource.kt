@@ -8,20 +8,20 @@ import ru.ranzed.composedemo.data.model.EventCategory
 
 class RemoteEventsDataSource(
     private val retrofit: Retrofit,
-) {
+) : IRemoteEventsDataSource {
 
     private val api: IKudaGoApi =
         retrofit.create(IKudaGoApi::class.java)
 
-    suspend fun getEventShortModels(): List<EventShortModel> {
+    override suspend fun getEventShortModels(): List<EventShortModel> {
         return api.getEventShortModels().results
     }
 
-    suspend fun getEventCategories(): List<EventCategory> {
+    override suspend fun getEventCategories(): List<EventCategory> {
         return api.getEventCategories()
     }
 
-    suspend fun getPlaceCategories(): List<PlaceCategory> {
+    override suspend fun getPlaceCategories(): List<PlaceCategory> {
         return api.getPlaceCategories()
     }
 }

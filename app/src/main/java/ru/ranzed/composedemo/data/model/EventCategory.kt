@@ -1,6 +1,5 @@
 package ru.ranzed.composedemo.data.model
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
